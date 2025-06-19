@@ -27,7 +27,8 @@ generateButton.addEventListener('click', async () => {
   resultBox.innerHTML = '<p class="text-gray-500">작명 중입니다...⏳</p>';
 
   try {
-    const response = await fetch('https://morning-meadow-4bd9.gr8-honour.workers.dev', {
+    const response = await fetch('https://dark-forest-83f4.gr8-honour.workers.dev', {
+
 
       method: 'POST',
       headers: {
