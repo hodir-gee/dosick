@@ -34,9 +34,15 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const result = await response.json();
-      const message = result.choices?.[0]?.message?.content || "⚠️ No content returned.";
-      const cleanData = message.replace(/\n/g, "<br>").replace(/ {2}/g, "&nbsp;&nbsp;");
-      resultBox.innerHTML = `<div class="whitespace-pre-wrap">${cleanData}</div>`;
+
+      console.log("📦 Raw result from API:", result);
+
+      resultBox.innerHTML = `
+        <div class="text-left text-xs whitespace-pre-wrap">
+          <strong>📦 전체 응답 (모바일 확인용):</strong><br>
+          ${JSON.stringify(result, null, 2).replace(/\n/g, "<br>").replace(/ /g, "&nbsp;")}
+        </div>
+      `;
     } catch (error) {
       resultBox.innerHTML = `<p class="text-red-500">에러 발생: ${error.message}</p>`;
     }
