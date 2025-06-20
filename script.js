@@ -30,13 +30,13 @@ generateButton.addEventListener('click', async () => {
     const response = await fetch('https://dark-forest-83f4.gr8-honour.workers.dev', {
       method: 'POST',
       headers: {
-        'Content-Type': 'text/plain; charset=utf-8',
+        'Content-Type': 'application/json',
       },
-      body: prompt,
+      body: JSON.stringify({ prompt }),
     });
 
     const result = await response.json();
-    const message = result.choices?.[0]?.message?.content || "No result";
+    const message = result.message || "No result";
 
     const cleanData = message.replace(/\n/g, "<br>").replace(/ {2}/g, "&nbsp;&nbsp;");
     resultBox.innerHTML = `<div class="text-left text-sm leading-relaxed whitespace-pre-wrap">${cleanData}</div>`;
