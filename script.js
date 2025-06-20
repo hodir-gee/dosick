@@ -35,8 +35,10 @@ generateButton.addEventListener('click', async () => {
       body: prompt,
     });
 
-    const data = await response.text();
-    const cleanData = data.replace(/\n/g, "<br>").replace(/ {2}/g, "&nbsp;&nbsp;");
+    const result = await response.json();
+    const message = result.choices?.[0]?.message?.content || "No result";
+
+    const cleanData = message.replace(/\n/g, "<br>").replace(/ {2}/g, "&nbsp;&nbsp;");
     resultBox.innerHTML = `<div class="text-left text-sm leading-relaxed whitespace-pre-wrap">${cleanData}</div>`;
   } catch (error) {
     resultBox.innerHTML = `<p class="text-red-500">에러 발생: ${error.message}</p>`;
