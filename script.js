@@ -37,6 +37,9 @@ generateButton.addEventListener('click', async () => {
 
     const result = await response.json();
 
+  console.log("📦 전체 응답 결과:", result);
+  console.log("🧾 GPT 응답 내용:", result.choices?.[0]?.message?.content);
+
     // ✅ OpenAI 응답에서 이름 추출
     const message = result.choices?.[0]?.message?.content || "No result";
 
