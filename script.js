@@ -28,17 +28,16 @@ generateButton.addEventListener('click', async () => {
 
   try {
     const response = await fetch('https://dark-forest-83f4.gr8-honour.workers.dev', {
-
-
       method: 'POST',
       headers: {
-  'Content-Type': 'text/plain; charset=utf-8',
-},
+        'Content-Type': 'text/plain; charset=utf-8',
+      },
       body: prompt,
     });
 
     const data = await response.text();
-    resultBox.innerHTML = `<pre class="text-left whitespace-pre-wrap">${data}</pre>`;
+    const cleanData = data.replace(/\n/g, "<br>").replace(/ {2}/g, "&nbsp;&nbsp;");
+    resultBox.innerHTML = `<div class="text-left text-sm leading-relaxed whitespace-pre-wrap">${cleanData}</div>`;
   } catch (error) {
     resultBox.innerHTML = `<p class="text-red-500">에러 발생: ${error.message}</p>`;
   }
