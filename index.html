@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fashion Naming Office</title>
-  <script defer src="script.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-white text-black min-h-screen flex flex-col items-center justify-center px-4 py-10">
@@ -13,7 +12,9 @@
   <h1 class="text-3xl md:text-5xl font-bold mb-6 text-center">FASHION NAMING OFFICE</h1>
 
   <!-- 설명 -->
-  <p class="mb-8 text-gray-600 text-center max-w-xl">당신의 패션 기획전에 어울리는 이름을 AI가 제안합니다. 키워드와 스타일을 입력해보세요.</p>
+  <p class="mb-8 text-gray-600 text-center max-w-xl">
+    당신의 패션 기획전에 어울리는 이름을 AI가 제안합니다. 키워드와 스타일을 입력해보세요.
+  </p>
 
   <!-- 입력폼 -->
   <div class="w-full max-w-md space-y-4">
@@ -23,9 +24,9 @@
 
     <!-- 스타일 선택 -->
     <div class="flex justify-between">
-     <button class="style-btn" data-style="직관적">직관적</button>
-<button class="style-btn" data-style="감각적">감각적</button>
-<button class="style-btn" data-style="창의적">창의적</button>
+      <button class="style-btn px-4 py-2 rounded border" data-style="직관적">직관적</button>
+      <button class="style-btn px-4 py-2 rounded border" data-style="감각적">감각적</button>
+      <button class="style-btn px-4 py-2 rounded border" data-style="창의적">창의적</button>
     </div>
 
     <!-- 작명 요청 버튼 -->
@@ -35,5 +36,7 @@
   <!-- 결과 표시 -->
   <div id="result" class="mt-10 w-full max-w-xl space-y-4 text-center"></div>
 
+  <!-- ✅ script.js는 맨 아래에 로드 -->
+  <script src="script.js"></script>
 </body>
 </html>
