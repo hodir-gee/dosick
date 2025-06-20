@@ -1,9 +1,6 @@
 const result = await response.json();
-
-// GPT 메시지 추출
 const message = result.choices?.[0]?.message?.content || "No result";
 
-// 깔끔하게 출력
 const cleanData = message
   .replace(/\n/g, "<br>")
   .replace(/ {2}/g, "&nbsp;&nbsp;");
